@@ -12,7 +12,7 @@ const football = [
     correctAnswer: `8 Ballon d'Or`,
   },
   {
-    question: `Which club is associated withm'Galacticos'?`,
+    question: `Which club is associated with 'Galacticos'?`,
     choices: [`Barcelona`, `Arsenal`, `Real Madrid`, `Bayern Munich`],
     correctAnswer: `Real Madrid`,
   },
@@ -59,6 +59,12 @@ const animals = [
     correct: "Crocodile",
   },
 ];
+const numArray = 
+["question 1 of 5",
+  "question 2 of 5",
+  "question 3 of 5",
+  "question 4 of 5",
+  "question 5 of 5",]
 
 /*---------- Variables (state) ---------*/
 let result = 0;
@@ -67,16 +73,37 @@ let currentQuestionIdx = 0;
 /*----- Cached Element References  -----*/
 const categorySelected = document.querySelector("#category");
 const startBtn = document.querySelector("#start-quiz");
-const questionNum = document.querySelector('#question-number');
-const questionText = document.querySelector('#question-text');
-const answer1 = document.querySelector('#answer1');
-const answer2 = document.querySelector('#answer2');
-const answer3 = document.querySelector('#answer3');
-const answer4 = document.querySelector('#answer4');
-const nextBtn = document.querySelector('#next-button');
-const resultText = document.querySelector('#result-text');
-const playAgainBtn = document.querySelector('#play-again');
+const questionNum = document.querySelector("#question-number");
+const questionText = document.querySelector("#question-text");
+const answer1 = document.querySelector("#answer1");
+const answer2 = document.querySelector("#answer2");
+const answer3 = document.querySelector("#answer3");
+const answer4 = document.querySelector("#answer4");
+const nextBtn = document.querySelector("#next-button");
+const resultText = document.querySelector("#result-text");
+const playAgainBtn = document.querySelector("#play-again");
 
 /*-------------- Functions -------------*/
+render();
+function render() {
+  //football-quiz
+  const currentQuestionF = football[currentQuestionIdx]
+  questionText.textContent = currentQuestionF.question
+  answer1.textContent = currentQuestionF.choices[0]
+  answer2.textContent = currentQuestionF.choices[1]
+  answer3.textContent = currentQuestionF.choices[2]
+  answer4.textContent = currentQuestionF.choices[3]
+  const currentNum = numArray[currentQuestionIdx]
+  questionNum.textContent = currentNum
 
-/*----------- Event Listeners ----------*/
+  //animals-quiz
+}
+
+function handleNext()
+{
+  currentQuestionIdx++;
+  render()
+}
+render()
+nextBtn.addEventListener('click',handleNext);
+
