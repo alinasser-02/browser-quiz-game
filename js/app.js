@@ -74,6 +74,9 @@ let currentQuestions = [];
 /*----- Cached Element References  -----*/
 const categorySelected = document.querySelector("#category");
 const startBtn = document.querySelector("#start-quiz");
+const openModalBtn = document.querySelector("#open-modal");
+const closeModalBtn = document.querySelector("#close-modal");
+const dialog = document.querySelector("#instructions");
 
 const questionNum = document.querySelector("#question-number");
 const questionText = document.querySelector("#question-text");
@@ -123,6 +126,7 @@ function checkAnswer(event) {
 }
 
 /*----------- Event Listeners ----------*/
+
 if (startBtn) {
   startBtn.addEventListener("click", function () {
     const selectedCategory = categorySelected.value;
@@ -163,19 +167,5 @@ if (playAgainBtn) {
   });
 }
 
-
-//Code Graveyard
-// function newScore() {
-//    if (theScore){  theScore.textContent = `${result}`;
-// }
-// }
-
-// newScore();
-
-// if (quizResult !== null) {
-// theScore.textContent = `${quizResult} of 5`;
-// }
-// let playerAnswered = false;
-// if (playerAnswered) {
-//  return (playerAnswered = true);
-// }
+openModalBtn.addEventListener("click", () => dialog.showModal());
+closeModalBtn.addEventListener("click", () => dialog.close());

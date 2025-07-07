@@ -30,19 +30,13 @@ body {
   margin: auto;
 }
 
-#start-quiz {
+#start-quiz,
+#open-modal {
   width: 500px;
   margin: auto;
   height: 100px;
   margin-top: 15px;
 }
-/* 
-#questions-answers {
-  margin-left: auto;
-  margin-right: auto;
-  width: 500px;
-  
-} */
 
 #question-text {
   font-weight: bold;

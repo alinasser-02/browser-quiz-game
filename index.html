@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Game</title>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
@@ -24,5 +25,29 @@
       </div>
       <button id="start-quiz">Start Quiz</button>
     </div>
+
+    <button id="open-modal" class="secondary">How to play</button>
+
+    <dialog id="instructions">
+      <article>
+        <header>
+          <button aria-label="Close" rel="prev" id="close-modal">close</button>
+          <h3>How to Play?</h3>
+        </header>
+        <ol>
+          <li>select a category (Football or Animals).</li>
+          <li>Click start quiz.</li>
+          <li>Read the questions carefully!</li>
+          <li>
+            Each question have 4 choices, choose the correct answer to get +1
+            score.
+          </li>
+          <li>After you choose an option(answer), click next.</li>
+          <li>
+            At the end when you answers the 5 question, you will see the result.
+          </li>
+        </ol>
+      </article>
+    </dialog>
   </body>
 </html>
