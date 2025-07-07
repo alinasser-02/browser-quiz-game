@@ -1,6 +1,6 @@
 # Quiz Game ⁉️🧠
 
-![Game Screenshot](./assets/screenshot.png)
+![Game Screenshot](./assets/quiz-game.png)
 
 ## 🕹️ Description
 
@@ -10,7 +10,7 @@ If the player score is 3 or more he passes(win), else he lose or fail.
 
 ## 🚀 Getting Started
 
-👉 **Play it here:** [https://your-deployment-link.com](https://alinasser-02.github.io/browser-quiz-game/)
+👉 **Play it here:** [https://alinasser-02.github.io/browser-quiz-game/]
 
 👉 **Planning Materials:**
 - [User Stories](./planning/user-stories.md)
