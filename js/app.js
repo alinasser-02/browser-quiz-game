@@ -81,6 +81,7 @@ const dialog = document.querySelector("#instructions");
 
 const questionNum = document.querySelector("#question-number");
 const questionText = document.querySelector("#question-text");
+const answers = document.querySelector("#answers");
 const answer1 = document.querySelector("#answer1");
 const answer2 = document.querySelector("#answer2");
 const answer3 = document.querySelector("#answer3");
@@ -90,7 +91,9 @@ const nextBtn = document.querySelector("#next-button");
 const resultText = document.querySelector("#result-text");
 const theScore = document.querySelector("#the-score");
 const playAgainBtn = document.querySelector("#play-again");
-const sound = new Audio('https://www.orangefreesounds.com/wp-content/uploads/2018/01/Chopin-nocturne-op-9-no-1-1.mp3')
+const sound = new Audio(
+  "https://www.orangefreesounds.com/wp-content/uploads/2018/01/Chopin-nocturne-op-9-no-1-1.mp3"
+);
 const selectedCategory = localStorage.getItem("selectedCategory");
 
 /*-------------- Functions -------------*/
@@ -108,31 +111,40 @@ function render() {
   answer4.textContent = currentQuestion.choices[3];
   questionNum.textContent = numArray[currentQuestionIdx];
   ifAnswered = false;
+ 
 }
 
 function nextQuestion() {
   currentQuestionIdx++;
+  answer1.removeAttribute('disabled')
+  answer2.removeAttribute('disabled')
+  answer3.removeAttribute('disabled')
+  answer4.removeAttribute('disabled')
   if (currentQuestionIdx >= currentQuestions.length) {
     localStorage.setItem("score", result);
     window.location.href = "result.html";
   } else {
     render();
+    
   }
 }
 
 function checkAnswer(event) {
-  if(ifAnswered)
-    return;
+  if (ifAnswered) return;
 
   const selectedAnswer = event.target.textContent;
   let currentQuestion = currentQuestions[currentQuestionIdx];
   if (selectedAnswer === currentQuestion.correct) {
     result++;
   }
+  answer1.setAttribute("disabled", true);
+  answer2.setAttribute("disabled", true);
+  answer3.setAttribute("disabled", true);
+  answer4.setAttribute("disabled", true);
   ifAnswered = true;
 }
 
-sound.play()
+sound.play();
 /*----------- Event Listeners ----------*/
 
 if (startBtn) {
@@ -145,6 +157,7 @@ if (startBtn) {
 
 if (nextBtn) {
   nextBtn.addEventListener("click", nextQuestion);
+
 }
 if (questionText) {
   render();
@@ -178,3 +191,4 @@ if (openModalBtn) {
   openModalBtn.addEventListener("click", () => dialog.showModal());
   closeModalBtn.addEventListener("click", () => dialog.close());
 }
+
