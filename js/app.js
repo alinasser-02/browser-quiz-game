@@ -78,6 +78,7 @@ const startBtn = document.querySelector("#start-quiz");
 const openModalBtn = document.querySelector("#open-modal");
 const closeModalBtn = document.querySelector("#close-modal");
 const dialog = document.querySelector("#instructions");
+const music = document.querySelector("#music");
 
 const questionNum = document.querySelector("#question-number");
 const questionText = document.querySelector("#question-text");
@@ -111,21 +112,19 @@ function render() {
   answer4.textContent = currentQuestion.choices[3];
   questionNum.textContent = numArray[currentQuestionIdx];
   ifAnswered = false;
- 
 }
 
 function nextQuestion() {
   currentQuestionIdx++;
-  answer1.removeAttribute('disabled')
-  answer2.removeAttribute('disabled')
-  answer3.removeAttribute('disabled')
-  answer4.removeAttribute('disabled')
+  answer1.removeAttribute("disabled");
+  answer2.removeAttribute("disabled");
+  answer3.removeAttribute("disabled");
+  answer4.removeAttribute("disabled");
   if (currentQuestionIdx >= currentQuestions.length) {
     localStorage.setItem("score", result);
     window.location.href = "result.html";
   } else {
     render();
-    
   }
 }
 
@@ -144,7 +143,6 @@ function checkAnswer(event) {
   ifAnswered = true;
 }
 
-sound.play();
 /*----------- Event Listeners ----------*/
 
 if (startBtn) {
@@ -157,7 +155,6 @@ if (startBtn) {
 
 if (nextBtn) {
   nextBtn.addEventListener("click", nextQuestion);
-
 }
 if (questionText) {
   render();
@@ -192,3 +189,8 @@ if (openModalBtn) {
   closeModalBtn.addEventListener("click", () => dialog.close());
 }
 
+if (music) {
+  music.addEventListener("click", function () {
+    sound.play();
+  });
+}

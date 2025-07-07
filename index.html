@@ -15,40 +15,43 @@
   <body>
     <div class="container">
       <div id="quiz-title"><h1>Quiz Game</h1></div>
+      <nav><button id="music">🎵</button></nav>
 
       <div class="category">
-        <label class="category-label"> Choose a category: </label>
+        <p>Choose a category:</p>
         <select name="category" id="category">
           <option value="Football">Football</option>
           <option value="Animals">Animals</option>
         </select>
       </div>
       <button id="start-quiz">Start Quiz</button>
-      
-    <button id="open-modal" class="secondary">How to play</button>
 
-    <dialog id="instructions">
-      <article>
-        <header>
-          <button aria-label="Close" rel="prev" id="close-modal">close</button>
-          <h3>How to Play?</h3>
-        </header>
-        <ol>
-          <li>select a category (Football or Animals).</li>
-          <li>Click start quiz.</li>
-          <li>Read the questions carefully!</li>
-          <li>
-            Each question have 4 choices, choose the correct answer to get +1
-            score.
-          </li>
-          <li>After you choose an option(answer), click next.</li>
-          <li>
-            At the end when you answers the 5 question, you will see the result.
-          </li>
-        </ol>
-      </article>
-    </dialog>
+      <button id="open-modal" class="secondary">How to play</button>
+
+      <dialog id="instructions">
+        <article>
+          <header>
+            <button aria-label="Close" rel="prev" id="close-modal">
+              close
+            </button>
+            <h3>How to Play?</h3>
+          </header>
+          <ol>
+            <li>select a category (Football or Animals).</li>
+            <li>Click start quiz.</li>
+            <li>Read the questions carefully!</li>
+            <li>
+              Each question have 4 choices, choose the correct answer to get +1
+              score.
+            </li>
+            <li>After you choose an option(answer), click next.</li>
+            <li>
+              At the end when you answers the 5 question, you will see the
+              result.
+            </li>
+          </ol>
+        </article>
+      </dialog>
     </div>
-
   </body>
 </html>
