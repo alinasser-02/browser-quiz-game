@@ -1,8 +1,7 @@
 * {
   box-sizing: border-box;
 }
-.container
-{
+.container {
   margin-top: 55px;
 }
 body {
@@ -11,7 +10,7 @@ body {
   margin: auto;
   text-align: center;
   height: 100vh;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 #quiz-title {
@@ -30,6 +29,7 @@ body {
   width: 500px;
   margin: auto;
 }
+
 #start-quiz {
   width: 500px;
   margin: auto;
@@ -44,20 +44,16 @@ body {
   
 } */
 
-
-
 #question-text {
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 18px;
 }
-#question-number
-{
+#question-number {
   margin: 0;
 }
 
-#play-again
-{
+#play-again {
   background-color: darkgreen;
 }
 
@@ -68,51 +64,49 @@ body {
   margin-top: 30px;
 }
 
-#result-text
-{
-
-
+#result-text {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 30px;
   margin-top: 30px;
   color: #eef8b9;
-
 }
-
-
 
 #next-button {
-  background-color: rgba(216, 216, 216, 0.908);
-  width: 100px;
-  border: 2px solid rgb(0, 0, 0);
+  background-color: rgba(67, 104, 173, 0.329);
+  width: 85px;
+  border: 1px solid rgba(189, 187, 187, 0.594);
   margin: auto;
-  color: rgba(1, 1, 1, 0.62);
+  color: rgb(255, 255, 255);
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 5px;
 }
-
 
 #answers button {
   padding-bottom: 10px;
-
 }
- 
+
 #answers {
   display: flex;
   flex-direction: column;
   align-items: center;
-   margin-left: auto;
+  margin-left: auto;
   margin-right: auto;
   width: 500px;
 }
 
-#question-number
-{
-  margin-bottom: 10px ;
+#question-number {
+  margin-bottom: 10px;
 }
 
-button:hover
-{
-background-color: rgb(81, 81, 239);
+button:hover {
+  background-color: rgba(102, 102, 243, 0.238);
+}
+
+button:focus {
+  background-color: rgba(81, 81, 239, 0.184);
+}
+
+#next-button:hover {
+  background-color: #2d4ed329;
 }

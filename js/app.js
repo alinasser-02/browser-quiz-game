@@ -1,5 +1,4 @@
 /*-------------- Constants -------------*/
-
 const football = [
   {
     question: `Messi has won a record number of Ballon d'Or awards - how many?`,
@@ -44,13 +43,13 @@ const animals = [
     correct: "8",
   },
   {
-    question: "How many legs does a spider have?",
+    question: "Which sea creature has eight legs?",
     choices: ["Jellyfish", "Lobster", "Squid", "Octopus"],
     correct: "Octopus",
   },
   {
     question: "Which bird can mimic human speech?",
-    choices: ["Owl", "Crow", "Parrot ", "Swan"],
+    choices: ["Owl", "Crow", "Parrot", "Swan"],
     correct: "Parrot",
   },
   {
@@ -72,7 +71,6 @@ let result = 0;
 let currentQuestionIdx = 0;
 let currentQuestions = [];
 
-
 /*----- Cached Element References  -----*/
 const categorySelected = document.querySelector("#category");
 const startBtn = document.querySelector("#start-quiz");
@@ -86,6 +84,7 @@ const answer4 = document.querySelector("#answer4");
 const nextBtn = document.querySelector("#next-button");
 
 const resultText = document.querySelector("#result-text");
+const theScore = document.querySelector("#the-score");
 const playAgainBtn = document.querySelector("#play-again");
 
 /*-------------- Functions -------------*/
@@ -95,7 +94,6 @@ if (selectedCategory === "Football") {
 } else {
   currentQuestions = animals;
 }
-
 function render() {
   let currentQuestion = currentQuestions[currentQuestionIdx];
   questionText.textContent = currentQuestion.question;
@@ -103,20 +101,26 @@ function render() {
   answer2.textContent = currentQuestion.choices[1];
   answer3.textContent = currentQuestion.choices[2];
   answer4.textContent = currentQuestion.choices[3];
-  const currentNum = numArray[currentQuestionIdx];
-  questionNum.textContent = currentNum;
+  questionNum.textContent = numArray[currentQuestionIdx];
 }
 
 function nextQuestion() {
   currentQuestionIdx++;
   if (currentQuestionIdx >= currentQuestions.length) {
+    localStorage.setItem("score", result);
     window.location.href = "result.html";
   } else {
     render();
   }
 }
 
-
+function checkAnswer(event) {
+  const selectedAnswer = event.target.textContent;
+  let currentQuestion = currentQuestions[currentQuestionIdx];
+  if (selectedAnswer === currentQuestion.correct) {
+    result++;
+  }
+}
 
 /*----------- Event Listeners ----------*/
 if (startBtn) {
@@ -127,16 +131,51 @@ if (startBtn) {
   });
 }
 
+if (nextBtn) {
+  nextBtn.addEventListener("click", nextQuestion);
+}
+if (questionText) {
+  render();
+}
+if (answer1) {
+  answer1.addEventListener("click", checkAnswer);
+}
+if (answer2) {
+  answer2.addEventListener("click", checkAnswer);
+}
+if (answer3) {
+  answer3.addEventListener("click", checkAnswer);
+}
+if (answer4) {
+  answer4.addEventListener("click", checkAnswer);
+}
+if (resultText) {
+  const quizResult = localStorage.getItem("score");
+  if (quizResult >= 3) {
+    theScore.textContent = `${quizResult} of 5 You won, congrats!`;
+  } else {
+    theScore.textContent = `${quizResult} of 5 You lost, try again!`;
+  }
+}
 if (playAgainBtn) {
   playAgainBtn.addEventListener("click", function () {
-    window.location.href = "quiz.html"; 
+    window.location.href = "quiz.html";
   });
 }
 
-if(nextBtn)
-{
-nextBtn.addEventListener("click", nextQuestion);
-render();
 
-}
-render();
+//Code Graveyard
+// function newScore() {
+//    if (theScore){  theScore.textContent = `${result}`;
+// }
+// }
+
+// newScore();
+
+// if (quizResult !== null) {
+// theScore.textContent = `${quizResult} of 5`;
+// }
+// let playerAnswered = false;
+// if (playerAnswered) {
+//  return (playerAnswered = true);
+// }
