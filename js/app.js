@@ -89,7 +89,7 @@ const nextBtn = document.querySelector("#next-button");
 const resultText = document.querySelector("#result-text");
 const theScore = document.querySelector("#the-score");
 const playAgainBtn = document.querySelector("#play-again");
-
+const sound = new Audio('https://www.orangefreesounds.com/wp-content/uploads/2018/01/Chopin-nocturne-op-9-no-1-1.mp3')
 /*-------------- Functions -------------*/
 const selectedCategory = localStorage.getItem("selectedCategory");
 if (selectedCategory === "Football") {
@@ -125,6 +125,7 @@ function checkAnswer(event) {
   }
 }
 
+sound.play()
 /*----------- Event Listeners ----------*/
 
 if (startBtn) {
@@ -166,6 +167,6 @@ if (playAgainBtn) {
     window.location.href = "quiz.html";
   });
 }
-
 openModalBtn.addEventListener("click", () => dialog.showModal());
 closeModalBtn.addEventListener("click", () => dialog.close());
+
