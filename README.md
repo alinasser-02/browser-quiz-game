@@ -14,13 +14,13 @@ If the player score is 3 or more he passes(win), else he lose or fail.
 
 👉 **Planning Materials:**
 - [User Stories](./planning/user-stories.md)
-- [Wireframe](./planning/wireframe.png)
+- [excalidraw](./planning/excalidraw.png)
 
 ### How to Play
 1. Open the link to the game.
-2. Click Rock, Paper, or Scissors.
-3. The computer will choose too.
-4. The winner is shown. First to 5 points wins!
+2. Select category and click start quiz.
+3. read the question then choose one of the answers and click next.
+4. After the final question, the score is shown and you can play again!
 
 ## 💡 Technologies Used
 
@@ -28,12 +28,7 @@ If the player score is 3 or more he passes(win), else he lose or fail.
 - CSS
 - JavaScript
 
-## 📚 Attributions
-
-- [Icons from Font Awesome](https://fontawesome.com/)
-
 ## 🚧 Next Steps
 
-- Add sound effects
 - Add animations
-- Make it work on phones
+- Make it work on different devices
