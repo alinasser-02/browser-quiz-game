@@ -70,6 +70,7 @@ const numArray = [
 let result = 0;
 let currentQuestionIdx = 0;
 let currentQuestions = [];
+let ifAnswered = false;
 
 /*----- Cached Element References  -----*/
 const categorySelected = document.querySelector("#category");
@@ -90,8 +91,9 @@ const resultText = document.querySelector("#result-text");
 const theScore = document.querySelector("#the-score");
 const playAgainBtn = document.querySelector("#play-again");
 const sound = new Audio('https://www.orangefreesounds.com/wp-content/uploads/2018/01/Chopin-nocturne-op-9-no-1-1.mp3')
-/*-------------- Functions -------------*/
 const selectedCategory = localStorage.getItem("selectedCategory");
+
+/*-------------- Functions -------------*/
 if (selectedCategory === "Football") {
   currentQuestions = football;
 } else {
@@ -105,6 +107,7 @@ function render() {
   answer3.textContent = currentQuestion.choices[2];
   answer4.textContent = currentQuestion.choices[3];
   questionNum.textContent = numArray[currentQuestionIdx];
+  ifAnswered = false;
 }
 
 function nextQuestion() {
@@ -118,11 +121,15 @@ function nextQuestion() {
 }
 
 function checkAnswer(event) {
+  if(ifAnswered)
+    return;
+
   const selectedAnswer = event.target.textContent;
   let currentQuestion = currentQuestions[currentQuestionIdx];
   if (selectedAnswer === currentQuestion.correct) {
     result++;
   }
+  ifAnswered = true;
 }
 
 sound.play()
@@ -167,6 +174,7 @@ if (playAgainBtn) {
     window.location.href = "quiz.html";
   });
 }
-openModalBtn.addEventListener("click", () => dialog.showModal());
-closeModalBtn.addEventListener("click", () => dialog.close());
-
+if (openModalBtn) {
+  openModalBtn.addEventListener("click", () => dialog.showModal());
+  closeModalBtn.addEventListener("click", () => dialog.close());
+}
